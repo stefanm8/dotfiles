@@ -51,6 +51,8 @@ if [ -d "/System/Library/PreferencePanes/TouchID.prefPane" ]; then
     # If has touchbar 
     PS1='\$\[$(~/.iterm2/it2setkeylabel set status \
     "$(test -d .git && (git rev-parse --abbrev-ref HEAD) || (echo -n "Not a repo"))")\] '
+else
+    PS1="\\$\[$(tput sgr0)\]"
 fi
 unset color_prompt force_color_prompt
 
