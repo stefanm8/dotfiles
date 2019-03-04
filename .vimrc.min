@@ -84,6 +84,9 @@ set foldcolumn=2                " add a fold column
 set foldmethod=marker           " detect triple-{ style fold markers
 set foldlevelstart=99           " start out with everything unfolded
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
-colorscheme benokaI
-set cursorline
+colorscheme default
+set cursorline 
+hi CursorLine cterm=None ctermbg=DarkGrey
 set cursorcolumn
+
+
