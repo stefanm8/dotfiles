@@ -4,7 +4,6 @@
 alias ll='ls -l -G'
 alias la='ls -A -G'
 alias ls='ls -CF -G'
-alias ls='ls -G'
 alias lt='ls -alt -G'
 
 alias grep='grep --color=always'
