@@ -22,7 +22,19 @@ alias lshttps="lsof -i :443"
 # ssh into a container
 sshdocker()
 {
-    docker exec -it $1 /bin/sh
+    shell=$2
+    if [ -z "$1" ]
+    then 
+        echo "Invalid usage --help for more"
+        return 0
+
+    fi
+    if [ -z "$shell" ] 
+    then
+        shell=/bin/bash
+    fi
+
+    docker exec -it $1 $shell
 }
 
 # Opens multiple files horizontally 
@@ -37,4 +49,28 @@ vimv() {
 
 kerberosinit() {
     kinit --renewable --lifetime=36000 --ok-as-delegate --forwardable --keychain --windows  --request-pac --verbose $1
+}
+
+gowatch() {
+    if [ -z "$1" ]
+    then
+        echo "--help for usage"
+        return 0
+    fi
+
+    if [ "$1" = "--help" ]
+    then
+        cat <<EOF
+    gowatch
+    Every seconds compiles go source fires,
+    to the specified destination
+
+    gowatch [destination_path] [go source files]
+EOF
+        return 0
+    fi
+
+    while sleep 1;do {
+        go build -o $1 $2
+    } done;
 }
