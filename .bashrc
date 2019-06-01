@@ -95,3 +95,31 @@ export LESS_TERMCAP_so=$'\E[38;5;246m' # begin standout-mode - info box export L
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_completion ]; then
+    . ~/.bash_completion
+fi
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+_gopass_bash_autocomplete() {
+     local cur opts base
+     COMPREPLY=()
+     cur="${COMP_WORDS[COMP_CWORD]}"
+     opts=$( ${COMP_WORDS[@]:0:$COMP_CWORD} --generate-bash-completion )
+     local IFS=$'\n'
+     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+     return 0
+ }
+
+complete -F _gopass_bash_autocomplete gopass
