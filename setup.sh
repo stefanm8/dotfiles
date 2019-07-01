@@ -27,7 +27,7 @@ install_apps() {
     echo "Installing necessities via brew cask"
     brew update                           
     brew tap caskroom/cask                
-    brew install go jsonnet gnupg
+    brew install node go jsonnet gnupg
     brew cask install docker google-chrome visual-studio-code vlc
     brew cask cleanup
     brew cleanup
@@ -58,10 +58,10 @@ main() {
     git config --global user.name $github_username
     git config --global user.email $github_email
 
-    install_vim
-    install_dotfiles 
-    install_kubectl
-    install_apps
+    install_vim &
+    install_dotfiles & 
+    install_kubectl &
+    install_apps &
 
 }
 

@@ -1,4 +1,4 @@
-source ~/.bash_completions
+source ~/.bash_completion
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 
