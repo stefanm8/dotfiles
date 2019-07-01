@@ -52,6 +52,12 @@ install_pip() {
     echo "$(curl https://bootstrap.pypa.io/get-pip.py)" | sudo python
     pip3 install pipenv
 }
+install_npm_dev() {
+    npm install -g @angular/cli
+    npm install -g typescript
+
+
+}
 
 
 main() {
@@ -62,6 +68,7 @@ main() {
     install_dotfiles & 
     install_kubectl &
     install_apps &
+    install_npm_dev 
 
 }
 
