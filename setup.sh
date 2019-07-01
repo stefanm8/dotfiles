@@ -1,5 +1,7 @@
 #!/bin/sh
 
+github_username="stefanm8"
+github_email="stefanmihartescu@gmail.com"
 
 curl_file() {
     echo "$(curl $1)" > $2
@@ -25,6 +27,7 @@ install_apps() {
     echo "Installing necessities via brew cask"
     brew update                           
     brew tap caskroom/cask                
+    brew install go jsonnet gnupg
     brew cask install docker google-chrome visual-studio-code vlc
     brew cask cleanup
     brew cleanup
@@ -38,27 +41,27 @@ install_kubectl() {
     chmod +x /usr/local/bin/kubectl
 }
 
-install_go() {
-    brew install go
-
-}
-
 install_go_dev() {
     go get github.com/gopasspw/gopass
     go get -u github.com/go-delve/delve/cmd/dlv
 
 }
 
+install_pip() {
+    brew install python3
+    echo "$(curl https://bootstrap.pypa.io/get-pip.py)" | sudo python
+    pip3 install pipenv
+}
+
 
 main() {
-    git config --global user.name "stefanm8"
-    git config --global user.email stefanmihartescu@gmail.com
+    git config --global user.name $github_username
+    git config --global user.email $github_email
 
     install_vim
     install_dotfiles 
     install_kubectl
     install_apps
-
 
 }
 
