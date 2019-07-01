@@ -15,7 +15,7 @@ alias runcassandra="docker run -p '9042:9042' -v $HOME/Development/persistence/c
 #Wifi CLI 
 alias airport=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport
 
-alias lshttp="lsof -i :22"
+alias lshttp="lsof -i :80"
 alias lshttps="lsof -i :443"
 
 # ssh into a container
