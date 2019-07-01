@@ -55,7 +55,13 @@ install_pip() {
 install_npm_dev() {
     npm install -g @angular/cli
     npm install -g typescript
+    npm install -g react 
 
+
+}
+
+change_defaults() {
+    defaults write com.apple.finder AppleShowAllFiles YES
 
 }
 
@@ -69,6 +75,7 @@ main() {
     install_kubectl &
     install_apps &
     install_npm_dev 
+    change_defaults
 
 }
 

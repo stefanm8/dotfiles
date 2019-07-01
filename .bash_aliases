@@ -6,7 +6,7 @@ alias la='ls -A -G'
 alias ls='ls -CF -G'
 alias lt='ls -alt -G'
 
-alias grep='grep --color=always'
+alias grep='grep -i --color=always'
 alias drop_caches='sync; sudo sysctl -w vm.drop_caches=3'
 # Kills all containers
 alias kill_containers="docker ps | awk 'FNR>1{print \$1}' | xargs docker stop"
@@ -18,6 +18,11 @@ alias airport=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Cu
 alias lshttp="lsof -i :80"
 alias lshttps="lsof -i :443"
 
+export icloud=~/Library/Mobile\ Documents/com~apple~CloudDocs/
+
+lsport() {
+    lsof -i :$1
+}
 # ssh into a container
 sshdocker()
 {
