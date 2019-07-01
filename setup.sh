@@ -38,6 +38,16 @@ install_kubectl() {
     chmod +x /usr/local/bin/kubectl
 }
 
+install_go() {
+    brew install go
+
+}
+
+install_go_dev() {
+    go get github.com/gopasspw/gopass
+    go get -u github.com/go-delve/delve/cmd/dlv
+
+}
 
 
 main() {

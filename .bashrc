@@ -1,3 +1,4 @@
+source ~/.bash_completions
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 
@@ -84,8 +85,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 
-export PATH=$PATH:/usr/local/sbin
 export GOPATH=$HOME/Go
+export PATH=$PATH:/usr/local/sbin:$GOPATH/bin
 # Man pages
 export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m' # begin bold
