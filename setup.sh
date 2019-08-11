@@ -27,7 +27,7 @@ install_apps() {
     echo "Installing necessities via brew cask"
     brew update                           
     brew tap caskroom/cask                
-    brew install node go jsonnet gnupg
+    brew install jq node go jsonnet gnupg nmap
     brew cask install docker google-chrome visual-studio-code vlc
     brew cask cleanup
     brew cleanup
