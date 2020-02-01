@@ -47,6 +47,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+
 if [ -d "/System/Library/PreferencePanes/TouchID.prefPane" ]; then
     # If has touchbar 
     PS1='\$\[$(~/.iterm2/it2setkeylabel set status \
@@ -76,16 +77,10 @@ xterm*|rxvt*)
     ;;
 esac
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-
+# Paths
 export GOPATH=$HOME/Go
 export PATH=$PATH:/usr/local/sbin:$GOPATH/bin
+
 # Man pages
 export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m' # begin bold
@@ -110,6 +105,10 @@ fi
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
+fi
+
+if [ -d ~/.functions ]; then
+    . ~/.functions/*
 fi
 
 _gopass_bash_autocomplete() {
