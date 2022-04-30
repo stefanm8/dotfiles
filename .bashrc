@@ -1,7 +1,7 @@
 
 HISTCONTROL=ignoreboth
-HISTSIZE=0
-HISTFILESIZE=0
+HISTSIZE=
+HISTFILESIZE=
 
 shopt -s histappend
 shopt -s checkwinsize
