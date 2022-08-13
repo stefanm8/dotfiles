@@ -1,3 +1,4 @@
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 HISTCONTROL=ignoreboth
 HISTSIZE=
@@ -44,11 +45,9 @@ fi
 alias ls='ls --color'
 export PS1='\$ '
 export EDITOR='vim'
-[[ $TERM != "screen" ]] && exec tmux
+
+[[ $TERM != *"screen"* ]] && exec tmux
 tmux source-file ~/.tmux.conf
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 export PATH=$PATH:/usr/local/go/bin
-
