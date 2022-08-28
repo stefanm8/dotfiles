@@ -49,5 +49,9 @@ export EDITOR='vim'
 [[ $TERM != *"screen"* ]] && exec tmux
 tmux source-file ~/.tmux.conf
 
-
+export GOPATH="$HOME/go"
 export PATH=$PATH:/usr/local/go/bin
+
+git config pull.rebase true
+git config user.name stefanm8
+
