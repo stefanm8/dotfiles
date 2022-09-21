@@ -52,6 +52,6 @@ tmux source-file ~/.tmux.conf
 export GOPATH="$HOME/go"
 export PATH=$PATH:/usr/local/go/bin
 
-git --global config pull.rebase true
-git --global config user.name stefanm8
+git config --global pull.rebase true
+git config --global user.name stefanm8
 
