@@ -1,4 +1,5 @@
-export BASH_SILENCE_DEPRECATION_WARNING=1
+[[ $TERM != *"screen"* ]] && exec tmux
+tmux source-file ~/.tmux.conf
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -45,15 +46,21 @@ if ! shopt -oq posix; then
 fi
 
 alias ls='ls --color'
-export PS1='\$ '
+export PS1='$([ $? -eq 0 ] && echo "🔵" || echo "🔴") \$ '
 export EDITOR='vim'
 
-[[ $TERM != *"screen"* ]] && exec tmux
-tmux source-file ~/.tmux.conf
 
 export GOPATH="$HOME/go"
 export PATH=$PATH:/usr/local/go/bin
 
 git config --global pull.rebase true
-git config --global user.name stefanm8
+git config --global user.email "stefanmihartescu@gmail.com"
+git config --global user.name "stefanm8"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
